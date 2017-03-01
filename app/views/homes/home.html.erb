@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <header class="jumbotron hero-spacer">
+    <h1>A Warm Welcome to Rails Chat!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non
+      incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+    <p>
+      <% if current_user %>
+          hello! <%= current_user.name %>
+      <% else %>
+          <a href="#" class="btn btn-primary btn-large" id="login_panel"> Log in!</a>
+      <% end %>
+
+    </p>
+  </header>
+
+  <hr>
+  <hr>
+</div>

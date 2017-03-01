@@ -1,0 +1,64 @@
+<div class="panel with-nav-tabs panel-info">
+  <div class="panel-heading">
+    <ul class="nav nav-tabs">
+      <li class=<%= contact_active %>>
+        <a href="#contact-tab" data-toggle="tab"><i class="fa fa-book"></i>通讯录</a>
+      </li>
+      <li class=<%= chat_active %>>
+        <a href="#chat-tab" data-toggle="tab"><i class="fa fa-weixin"></i>聊天</a>
+      </li>
+    </ul>
+  </div>
+  <div class="panel-body" id="tab-panel-body">
+    <div class="tab-content">
+      <div class="tab-pane fade in <%= contact_active %>" id="contact-tab">
+        <ul class="list-group">
+          <% @friends.each do |user| %>
+              <li class="list-group-item" style="padding: 0px; margin-bottom: 0px;">
+
+                <button class="btn btn-default btn-block" data-toggle="collapse" data-target="#user-<%= user.id %>" id="tab-contact-default">
+                  <%= image_tag "user-icon.png", class: "img-sm" %>
+                  <div class="text-muted">
+                    <%= user.name %>
+                  </div>
+                </button>
+
+                <div id="user-<%= user.id %>" class="collapse">
+                  <%= form_for Chat.new, url: chats_path, method: :post do |f| %>
+                      <%= hidden_field_tag :users, [user.id] %>
+                      <%= button_tag(:class => "btn btn-success btn-block", style: "border-radius: 0;") do %>
+                          <i class="fa fa-angle-right"></i> 发起聊天
+                      <% end %>
+                  <% end %>
+                  <%= link_to user_path(user), class: 'btn btn-info btn-block', role: "button", style: "border-radius: 0" do %>
+                      <i class="fa fa-angle-right"></i> 用户详情
+                  <% end %>
+                  <%= link_to friendship_path(user), method: :delete, class: 'btn btn-danger btn-block', role: "button", style: "border-radius: 0;margin:0px;" do %>
+                      <i class="fa fa-angle-right"></i> 删除用户
+                  <% end %>
+                </div>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="tab-pane fade in <%= chat_active %>" id="chat-tab">
+        <ul class="list-group">
+          <% current_user.chats.each do |chatroom| %>
+              <%= link_to chat_path(chatroom), class: 'list-group-item' do %>
+                  <i class="fa fa-wechat fa-5"></i> <%= truncate(chatroom.name, length: 10) %>
+                  <text id="chatroom-<%= chatroom.id %>"></text>
+              <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#myModal">添加朋友
+    </button>
+  </div>
+</div>
+
+<%= render "search_fridends" %>

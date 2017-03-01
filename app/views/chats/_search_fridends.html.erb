@@ -1,0 +1,68 @@
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">查找用户</h4>
+      </div>
+      <div class="modal-body">
+
+        <form class="form-incline" id="search-friend">
+
+          <div class="input-group">
+            <%= text_field_tag :query, params[:query], placeholder: "搜索用户", class: 'form-control' %>
+            <span class="input-group-btn">
+                    <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+          </div>
+        </form>
+        <hr>
+
+        <table class="table table-striped table-hover" id="result">
+          <thead>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<script>
+    $('#search-friend').submit(function () {
+        var valuesToSubmit = $(this).serialize();
+        $.ajax({
+            type: 'GET',
+            url: '/users/index_json',
+            dataType: "JSON",
+            data: valuesToSubmit,
+            success: function (data) {
+                $('#result tr').remove();
+                $('#result text').remove();
+
+                if (data != "") {
+                    $('#result thead').html("<tr><th>姓名</th><th>性别</th><th>联系方式</th><th></th></tr>");
+                    $.each(data, function (index, user) {
+                        $('#result tbody').append("<tr><td>" + user.name + "</td><td>" + user.sex + "</td><td>" + user.email + "</td><td><a class='btn btn-success btn-xs' data-method='post' href='/friendships?friend_id=" + user.id + "'>添加</a></td></tr>");
+                    });
+                } else {
+                    $('#result tbody').append("<text>没有找到符合条件的用户</text>")
+                }
+
+            }, error: function () {
+                alert('error in post');
+            }
+        });
+        return false;
+    });
+
+</script>

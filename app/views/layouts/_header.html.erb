@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <%= link_to root_path, class: 'navbar-brand', style: "color:white" do %>
+          <i class="fa fa-leaf" aria-hidden="true"></i> RailsChat
+      <% end %>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <% if current_user %>
+
+          <li>
+            <%= link_to chats_path, class: "dropbtn" do %>
+                ChatRoom  <i class="fa fa-wechat"></i>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to user_path(current_user), class: "dropbtn" do %>
+                <%= current_user.name %> <span class="glyphicon glyphicon-user"></span>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to sessions_logout_path, method: :delete, class: "dropbtn" do %>
+                loggout <span class="	glyphicon glyphicon-off"></span>
+            <% end %>
+          </li>
+
+      <% end %>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<%= render 'layouts/login_panel' %>
+
+
+
+

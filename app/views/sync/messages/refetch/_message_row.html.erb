@@ -1,0 +1,22 @@
+<li class="mar-btm">
+  <div class="media-<%= current_user.id==message.user.id ? 'right' : 'left' %>">
+    <%= image_tag "user-icon.png", class: "img-sm" %>
+  </div>
+  <div class="media-body pad-hor <%= "speech-right" if current_user.id==message.user.id %>">
+    <div class="speech">
+      <p class="media-heading"><%= current_user.id==message.user.id ? '我' : message.user.name %>
+        <text class="speech-time">
+          <i class="fa fa-clock-o fa-fw"></i>
+          <%= message.created_at.to_formatted_s(:db) %>
+        </text>
+      </p>
+      <p style="margin-bottom: 5px; margin-top: 5px;"><%= message.body %></p>
+    </div>
+  </div>
+</li>
+
+<script>
+    var $cont = $('.nano-content');
+    $cont[0].scrollTop = $cont[0].scrollHeight;
+</script>
+
