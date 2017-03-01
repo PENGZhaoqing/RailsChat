@@ -1,6 +1,6 @@
 # RailsChat
 
-RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync Gem](https://github.com/chrismccord/render_sync)的基础上完成，有需要即时通讯的应用可以考虑这个Example
+RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync](https://github.com/chrismccord/render_sync)的基础上完成，有需要即时通讯的应用可以考虑这个Example
 
 ## 目前功能
 
