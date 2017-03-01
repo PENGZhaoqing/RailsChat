@@ -16,7 +16,6 @@ RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync Gem](htt
 2. 未读信息的提醒（包括声音）
 3. 加入更多的ajax提高用户体验
 
-
 ## Usage 
 
 1. Fork项目
