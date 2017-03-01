@@ -16,6 +16,12 @@ RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync Gem](htt
 2. 未读信息的提醒（包括声音）
 3. 加入更多的ajax提高用户体验
 
+
+**如果觉得好，请给项目点颗星来支持吧～～** 
+
+有什么好的建议，请在issue中提出，欢迎contributors！
+
+
 ## 截图
 
 <img src="/lib/Snip20170301_2.png">
@@ -27,6 +33,4 @@ RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync Gem](htt
 <img src="/lib/Snip20170301_5.png">
 
 
-**如果觉得好，请给项目点颗星来支持吧～～** 
 
-有什么好的建议，请在issue中提出，欢迎contributors！
