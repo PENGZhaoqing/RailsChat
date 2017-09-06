@@ -4,7 +4,7 @@ RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync](https:/
 
 ### [RailsChat详细教程-传送门](http://blog.csdn.net/ppp8300885/article/details/59109778)
 
-## Demo
+## ［Online Demo］(http://139.129.209.63:44400/)
 
 ![demo](demo.gif)
 
@@ -66,8 +66,19 @@ RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync](https:/
 
   ```
   rails s
-  rackup sync.ru -E production --host 192.168.0.14 
+  bundle exec rackup sync.ru -E production --host 192.168.0.14 
   ```
+
+### Tips:
+
+1. 在服务器中可以后台运行rack：`bundle exec rackup sync.ru -E production --host 192.168.0.14 -D`
+2. 若要关闭在后台运行的rackup，请使用`ps ax | grep ruby`查找相关ruby端口，然后用`kill －9 <pid>`结束正在运行的rackup，如：
+
+```
+21099 ?        Sl     0:00 /var/www/railschat/RailsChat/vendor/bundle/ruby/2.3.0/bin/rackup                                    
+21105 pts/4    S+     0:00 grep --color=auto ruby
+```
+  
 
 
 
