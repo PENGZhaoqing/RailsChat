@@ -4,6 +4,11 @@ RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync](https:/
 
 ### [RailsChat详细教程-传送门](http://blog.csdn.net/ppp8300885/article/details/59109778)
 
+## Demo
+
+![demo](demo.gif)
+
+
 ## 目前功能
 
 * 即时通讯
