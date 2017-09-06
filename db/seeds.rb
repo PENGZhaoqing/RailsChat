@@ -9,7 +9,7 @@
 
 (1..100).each do |index|
   User.create(
-      name: Faker::Name.name,
+      name: "user#{index}",
       email: "user#{index}@test.com",
       password: 'password',
       role: Faker::Number.between(1, 4),
