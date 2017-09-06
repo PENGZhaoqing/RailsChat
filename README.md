@@ -2,10 +2,20 @@
 
 RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync](https://github.com/chrismccord/render_sync)的基础上完成，有需要即时通讯的应用可以考虑这个Example
 
-## [Online Demo](http://139.129.209.63:44400/)
+## Online Demo
 
 ![demo](demo.gif)
 
+请点击[这里](http://139.129.209.63:44400/)访问Demo，用户登陆账号格式为：
+
+```
+username: user<number>@test.com
+password: password
+```
+
+* 其中number为1到20，代表20个用户，例如使用`user1@test.com`和`password`能登陆用户1，以此类推
+
+Note：请分别用两个浏览器登陆来尝试实时对话
 
 ## 目前功能
 
