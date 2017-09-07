@@ -2,23 +2,40 @@
 
 RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync](https://github.com/chrismccord/render_sync)的基础上完成，有需要即时通讯的应用可以考虑这个Example
 
-### [RailsChat详细教程-传送门](http://blog.csdn.net/ppp8300885/article/details/59109778)
+## Online Demo
+
+![demo](demo.gif)
+
+请点击[这里](http://139.129.209.63:44400/)访问Demo，测试用户登陆账号格式为：
+
+```
+username: user<number>@test.com
+password: password
+```
+
+* 其中number为1到20，代表20个用户，例如使用`user1@test.com`和`password`能登陆用户1，以此类推
+
+Note：请用两个浏览器分别登陆不同的用户来测试消息的即使推送，注意这两个用户需要互为好友
 
 ## 目前功能
 
-* 即时通讯
-* 增添好友
-* 创建聊天
-* 拉人，删人
-* 转移房屋权限
+* 聊天室消息即时推送
+* 支持查找，添加，删除好友
+* 创建私人聊天，也支持多人聊天
+* 房主可以拉人，踢人
+* 房主能转移房屋权限
 
 ## Todo
 
-1. UI界面修改（类似WeChat）
-2. 未读信息的提醒（包括声音）
-3. 加入更多的ajax提高用户体验
+1. 现在的即时推送只限于聊天的消息，其他的推送比如未读信息提醒（包括声音）等还未涉及
+2. 添加好友需要对方同意，现在是单方面添加
+3. 用户个人简介还未开发
+4. UI界面修改（类似WeChat）
+5. 管理后台开发
 
 ## Usage 
+
+### [RailsChat详细教程-传送门](http://blog.csdn.net/ppp8300885/article/details/59109778)
 
 1. Fork项目
 
@@ -61,8 +78,19 @@ RailsChat是一款由Rails开发的实时Web聊天室，在[Render_sync](https:/
 
   ```
   rails s
-  rackup sync.ru -E production --host 192.168.0.14 
+  bundle exec rackup sync.ru -E production --host 192.168.0.14 
   ```
+
+### Tips:
+
+1. 在服务器中可以后台运行rack：`bundle exec rackup sync.ru -E production --host 192.168.0.14 -D`
+2. 若要关闭在后台运行的rackup，请使用`ps ax | grep ruby`查找相关ruby端口，然后用`kill －9 <pid>`结束正在运行的rackup，如：
+
+```
+21099 ?        Sl     0:00 /var/www/railschat/RailsChat/vendor/bundle/ruby/2.3.0/bin/rackup                                    
+21105 pts/4    S+     0:00 grep --color=auto ruby
+```
+  
 
 
 
