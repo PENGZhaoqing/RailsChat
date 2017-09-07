@@ -2,6 +2,7 @@
   <header class="jumbotron hero-spacer">
     <h1>A Warm Welcome to Rails Chat!</h1>
     <p>一个Rails Chat测试版本</p>
+
     <p>
       <% if current_user %>
           hello! <%= current_user.name %>
@@ -10,6 +11,30 @@
       <% end %>
 
     </p>
+
+    <h3>
+      目前功能
+    </h3>
+    <li>聊天室消息即时推送</li>
+    <li>支持查找，添加，删除好友</li>
+    <li>创建私人聊天，也支持多人聊天</li>
+    <li>房主可以拉人，踢人</li>
+    <li>房主能转移房屋权限</li>
+    <h3>
+      TODO
+    </h3>
+    <li>现在的即时推送只限于聊天的消息，其他的推送比如未读信息提醒（包括声音）等还未涉及</li>
+    <li>添加好友需要对方同意，现在是单方面添加</li>
+    <li>用户个人简介还未开发</li>
+    <li>UI界面修改（类似WeChat）</li>
+    <li>管理后台开发</li>
+
+    <h3>
+      Usage
+    </h3>
+    <li>测试账号密码分别为: user1@test.com, password （邮箱后的数字代表不同用户）</li>
+    <li>请用两个浏览器分别登陆不同的用户来测试消息的即使推送，注意这两个用户需要互为好友</li>
+
   </header>
 
   <hr>
